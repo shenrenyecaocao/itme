@@ -38,11 +38,11 @@
         <br>
         <label for="email" class="sr-only">邮箱</label>
         <input type="text" name="email"  class="form-control" value="<?php echo set_value('email') ?>" placeholder="邮箱">
-        <span id="email"><?php echo form_error('email') ?></span>
+        <span id="email"><?php if ($sign_in_email_error) echo $sign_in_email_error ?><?php echo form_error('email') ?></span>
         <br>
         <label for="password" class="sr-only">密码</label>
         <input type="password" name="password" class="form-control" placeholder="密码">
-        <span id="password"><?php echo form_error('password') ?></span>
+        <span id="password"><?php if ($sign_in_password_error) echo $sign_in_password_error ?><?php echo form_error('password') ?></span>
         <div class="checkbox">
           <label>
             <input type="checkbox" value="remember-me"> Remember me
