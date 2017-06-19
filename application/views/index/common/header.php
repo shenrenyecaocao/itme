@@ -42,17 +42,17 @@
             <a href="#"><span class="glyphicon glyphicon-home"></span>&nbsp;&nbsp;首页</a>
           </li>
           <li class="dropdown">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">前端<span class="caret"></span></a> 
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">前端<span class="caret"></span></a>
             <ul class="dropdown-menu">
               <li><a href="#">Vue</a></li>
               <li><a href="#">React</a></li>
               <li><a href="#">AngularJS</a></li>
               <li><a href="#">Javascript</a></li>
               <li><a href="#">Css3</a></li>
-            </ul> 
+            </ul>
           </li>
           <li class="dropdown">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">后端<span class="caret"></span></a> 
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">后端<span class="caret"></span></a>
             <ul class="dropdown-menu">
               <li><a href="#">PHP</a></li>
               <li><a href="#">Python</a></li>

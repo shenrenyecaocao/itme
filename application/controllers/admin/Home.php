@@ -2,7 +2,7 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 require_once 'Base_admin.php';
 
-class Home extends Base_admin 
+class Home extends Base_admin
 {
     public function index()
     {

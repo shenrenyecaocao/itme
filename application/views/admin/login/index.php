@@ -1,27 +1,4 @@
-<!DOCTYPE html>
-<html lang="zh-CN">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
-    <base href="<?php echo base_url(); ?>" />
-    <link rel="icon" href="static/index/image/itme.png">
-
-    <title><?php echo $title ?></title>
-
-    <!-- Bootstrap core CSS -->
-    <link href="static/admin/css/bootstrap.min.css" rel="stylesheet">
-
-    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-    <link href="static/admin/css/ie10-viewport-bug-workaround.css" rel="stylesheet">
-
-    <!-- Custom styles for this template -->
-    <link rel="stylesheet" href="static/admin/css/signin.css" rel="stylesheet">
-
-    <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
-    <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
-    <script src="static/admin/js/ie-emulation-modes-warning.js"></script>
+<?php $this->load->view('admin/common/header') ?>
     <style>
       form span {
         color: red;
@@ -49,6 +26,10 @@
           </label>
         </div>
         <button class="btn btn-lg btn-primary btn-block" type="submit">登录</button>
+        <br>
+        <a class="btn btn-primary" href="<?php echo base_url('admin/register') ?>" style="width: 45%">注册</a>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <a class="btn btn-primary" href="<?php echo base_url('aa') ?>" style="width: 45%">找回密码</a>
       </form>
 
     </div> <!-- /container -->

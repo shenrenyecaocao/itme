@@ -1,3 +1,4 @@
+<?php $this->load->view('admin/common/header') ?>
 <?php $this->load->view('admin/common/top') ?>
     <div class="container-fluid">
       <div class="row">
@@ -155,6 +156,6 @@
         </div>
       </div>
     </div>
-    
+
 <?php $this->load->view('admin/common/footer') ?>
 

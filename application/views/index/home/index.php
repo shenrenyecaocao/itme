@@ -56,7 +56,6 @@
     <!-- Wrap the rest of the page in another container to center all the content. -->
 
     <div class="container marketing">
-
       <!-- Three columns of text below the carousel -->
       <div class="row">
         <div class="col-lg-4">
@@ -78,10 +77,6 @@
           <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
         </div><!-- /.col-lg-4 -->
       </div><!-- /.row -->
-
-
-      <!-- START THE FEATURETTES -->
-
       <hr class="featurette-divider">
 
       <div class="row featurette">
@@ -93,7 +88,6 @@
           <img class="featurette-image img-responsive center-block" data-src="holder.js/500x500/auto" alt="Generic placeholder image">
         </div>
       </div>
-
       <hr class="featurette-divider">
 
       <div class="row featurette">
@@ -105,7 +99,6 @@
           <img class="featurette-image img-responsive center-block" data-src="holder.js/500x500/auto" alt="Generic placeholder image">
         </div>
       </div>
-
       <hr class="featurette-divider">
 
       <div class="row featurette">
@@ -117,8 +110,7 @@
           <img class="featurette-image img-responsive center-block" data-src="holder.js/500x500/auto" alt="Generic placeholder image">
         </div>
       </div>
-
       <hr class="featurette-divider">
-
+    </div>
       <!-- /END THE FEATURETTES -->
 <?php $this->load->view('index/common/footer') ?>
