@@ -13,7 +13,7 @@
         </div>
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
-            <li><a href="<?php echo site_url('index/home') ?>">前台首页</a></li>
+            <li><a href="<?php echo site_url('index/home') ?>" target="_blank">前台首页</a></li>
           </ul>
           <ul class="nav navbar-nav navbar-right">
             <li><a href="<?php echo site_url('admin/logout'); ?>">退出</a></li>
