@@ -16,7 +16,7 @@ class Login extends MY_Controller
             $result = $this->Bll_login->check_login($post);
             if ($result === TRUE) {
                 $this->session->set_userdata('current_admin', $result);
-                redirect('admin/home');
+                redirect('admin/dashboard');
             } elseif ($result == 'email_error') {
                 $data['sign_in_email_error'] = $this->config->item('email_error');
             } elseif ($result == 'password_error') {
