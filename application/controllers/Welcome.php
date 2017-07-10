@@ -5,6 +5,6 @@ class Welcome extends CI_Controller
 {
     public function index()
     {
-        redirect(base_url('index/home'));
+        redirect(base_url('blog/dashboard'));
     }
 }

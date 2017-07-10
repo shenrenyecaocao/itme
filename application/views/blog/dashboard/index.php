@@ -1,4 +1,4 @@
-<?php $this->load->view('index/common/header') ?>
+<?php $this->load->view('blog/common/header') ?>
     <!-- Carousel
     ================================================== -->
     <div id="myCarousel" class="carousel slide" data-ride="carousel">
@@ -113,4 +113,4 @@
       <hr class="featurette-divider">
     </div>
       <!-- /END THE FEATURETTES -->
-<?php $this->load->view('index/common/footer') ?>
+<?php $this->load->view('blog/common/footer') ?>
