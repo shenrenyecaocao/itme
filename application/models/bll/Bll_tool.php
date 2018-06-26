@@ -1,7 +1,7 @@
-<?php 
+<?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Bll_tool extends MY_Model 
+class Bll_tool extends CI_Model
 {
     public function seed_email($subject, $message, $email)
     {
@@ -20,5 +20,11 @@ class Bll_tool extends MY_Model
         $this->email->message($message);
 
         return $this->email->send();
+    }
+
+    public function pagination($config)
+    {
+        $this->load->library('pagination');
+        $this->pagination->initialize($config);
     }
 }

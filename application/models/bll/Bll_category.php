@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Bll_category extends MY_Model
+class Bll_category extends CI_Model
 {
     public function get_category_list()
     {

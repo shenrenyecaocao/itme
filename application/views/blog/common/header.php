@@ -1,4 +1,5 @@
-﻿<!DOCTYPE html>
+﻿
+<!DOCTYPE html>
 <html lang="zh-CN">
   <head>
     <meta charset="utf-8">
@@ -11,6 +12,7 @@
 
     <!-- Bootstrap core CSS -->
     <link href="static/index/css/bootstrap.min.css" rel="stylesheet">
+    <link href="static/index/css/site.min.css" rel="stylesheet">
 
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
     <link href="static/index/css/ie10-viewport-bug-workaround.css" rel="stylesheet">
@@ -75,7 +77,7 @@
               <li><a href="#">关于自己</a></li>
           </li>
           <li>
-              <li><a href="#">相册</a></li>
+              <li><a href="<?php echo site_url('blog/album') ?>">相册</a></li>
           </li>
         </ul>
         <form class="navbar-form navbar-left">
