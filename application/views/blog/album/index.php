@@ -57,11 +57,11 @@
           <br/>
           <br/>
           <br/>
-          <?php if ($last_page > 1) {?>
+          <?php if ($current_page > 1) {?>
           <a class="newer-posts" href="<?php echo site_url('blog/album') . "?page=" . $last_page ?>">上一页</a>
         <?php } ?>
           <span class="page-number">第 <?php echo $current_page ?> 页/共 <?php echo $total_page ?> 页</span>
-          <?php if ($next_page < $total_page) { ?>
+          <?php if ($current_page < $total_page) { ?>
           <a class="older-posts" href="<?php echo site_url('blog/album') . "?page=" . $next_page ?>">下一页</a>
         <?php } ?>
     </nav>
