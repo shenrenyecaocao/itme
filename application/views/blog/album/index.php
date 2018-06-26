@@ -44,7 +44,7 @@
         <div class="col-sm-6 col-md-4 col-lg-3 ">
             <a href="<?php echo $image['image_url'] ?>" title="Bootstrap" target="_blank">
                 <div class="thumbnail">
-                    <img class="lazy" src="static/index/images/img_null.png" width="300" height="150" data-src="<?php echo $image['image_url'] ?>" alt="Bootstrap 优站精选">
+                    <img class="lazy" src="static/index/images/img_null.png" width="300" height="450" data-src="<?php echo $image['image_url'] ?>" alt="Bootstrap 优站精选">
                 </div>
             </a>
         </div>

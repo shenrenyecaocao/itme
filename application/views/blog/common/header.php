@@ -36,12 +36,12 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand" href="<?php echo site_url('index') ?>">桑榆非晚</a>
+        <a class="navbar-brand" href="<?php echo site_url('blog/dashboard') ?>">桑榆非晚</a>
       </div>
       <div id="navbar" class="navbar-collapse collapse">
         <ul class="nav navbar-nav">
           <li>
-            <a href="#"><span class="glyphicon glyphicon-home"></span>&nbsp;&nbsp;首页</a>
+            <a href="<?php echo site_url('blog/dashboard') ?>"><span class="glyphicon glyphicon-home"></span>&nbsp;&nbsp;首页</a>
           </li>
           <li class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">前端<span class="caret"></span></a>
