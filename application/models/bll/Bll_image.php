@@ -30,4 +30,10 @@ class Bll_image extends CI_Model
         $data['next_page'] = $current_page + 1;
         return $data;
     }
+
+    public function query_image_by_id($image_id)
+    {
+        $this->load->model('dal/Dal_image');
+        return $this->Dal_image->find(["image_id" => $image_id], ["image_url", "create_date", "update_date"]);
+    }
 }

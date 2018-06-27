@@ -6,6 +6,7 @@
         <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
           <br>
           <h1 class="page-header">文章管理</h1>
+          <h3><a href="<?php echo site_url('admin/article/create') ?>">添加文章</a></h3>
           <div class="table-responsive">
             <table class="table table-striped">
               <tr>
@@ -20,7 +21,7 @@
                 <td><?php echo $index ?></td>
                 <td><a href="<?php echo base_url('admin/article/show/' . $article['article_id']) ?>"><?php echo $article['title'] ?></a></td>
                 <td><img src=""></td>
-                <th><?php echo $article['create_data'] ?></th>
+                <th><?php echo $article['create_date'] ?></th>
                 <th><a href="<?php echo base_url('admin/article/edit/' . $article['article_id']) ?>">编辑</a></th>
                 <th><a href="<?php echo base_url('admin/article/delete/' . $article['article_id']) ?>">删除</a></th>
                 t

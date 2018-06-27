@@ -1,0 +1,17 @@
+2018-06-28 00:32:56
+array(1) {
+  ["image"]=>  array(5) {
+    ["name"]=>    string(36) "4a2baeb3ly1fs0j5gf98ij20f60fm79q.jpg"
+    ["type"]=>    string(10) "image/jpeg"
+    ["tmp_name"]=>    string(22) "C:\Windows\php73A2.tmp"
+    ["error"]=>    int(0)
+    ["size"]=>    int(105565)
+  }
+}
+
+2018-06-28 00:32:56
+array(2) {
+  ["title"]=>  string(3) "222"
+  ["content"]=>  string(9) "是多少"
+}
+
