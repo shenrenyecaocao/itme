@@ -43,38 +43,23 @@
           <li>
             <a href="<?php echo site_url('blog/dashboard') ?>"><span class="glyphicon glyphicon-home"></span>&nbsp;&nbsp;首页</a>
           </li>
+<?php foreach ($categorys as $index => $category) { ?>
+          <?php if ($category['level'] == 1) { ?>
           <li class="dropdown">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">前端<span class="caret"></span></a>
+            <a href="<?php echo site_url('blog/article/' . $category['category_id']) ?>" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><?php echo $category['name'] ?><span class="caret"></span></a>
             <ul class="dropdown-menu">
-              <li><a href="#">Vue</a></li>
-              <li><a href="#">React</a></li>
-              <li><a href="#">AngularJS</a></li>
-              <li><a href="#">Javascript</a></li>
-              <li><a href="#">Css3</a></li>
+    <?php foreach ($categorys as $k => $v) { ?>
+              <?php if ($category['category_id'] == $v['fid']) { ?>
+              <li><a href="<?php echo site_url('blog/article/' . $v['category_id']) ?>"><?php echo $v['name'] ?></a></li>
+              <?php } ?>
+    <?php } ?>
             </ul>
           </li>
-          <li class="dropdown">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">后端<span class="caret"></span></a>
-            <ul class="dropdown-menu">
-              <li><a href="#">PHP</a></li>
-              <li><a href="#">Python</a></li>
-              <li><a href="#">Node</a></li>
-            </ul>
-          </li>
-          <li class="dropdown">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">操所系统<span class="caret"></span></a>
-            <ul class="dropdown-menu">
-              <li><a href="#">Linux</a></li>
-              <li><a href="#">Windows</a></li>
-              <li><a href="#">Something else here</a></li>
-              <li role="separator" class="divider"></li>
-              <li class="dropdown-header">Nav header</li>
-              <li><a href="#">Separated link</a></li>
-              <li><a href="#">One more separated link</a></li>
-            </ul>
-          </li>
+          <?php } ?>
+<?php } ?>
+
           <li>
-              <li><a href="#">关于自己</a></li>
+              <li><a href="javascript::void(0)">关于自己</a></li>
           </li>
           <li>
               <li><a href="<?php echo site_url('blog/album') ?>">相册</a></li>

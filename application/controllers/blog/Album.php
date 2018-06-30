@@ -1,7 +1,8 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
+require_once 'Base_blog.php';
 
-class Album extends CI_Controller
+class Album extends Base_blog
 {
     public function index()
     {
@@ -9,7 +10,7 @@ class Album extends CI_Controller
         $this->load->model('bll/Bll_image');
         $image_info = $this->Bll_image->get_image_per_page_list();
         $data = array_merge($data, $image_info);
-        $this->load->view('blog/album/index', $data);
+        $this->view('blog/album/index', $data);
     }
 
     public function show($image_id, $current_page=NULL)
@@ -18,7 +19,7 @@ class Album extends CI_Controller
         $data['title'] = "照片";
         $data['image_url'] = $image_info['image_url'];
         $data['current_page'] = $current_page;
-        $this->load->view('blog/album/show', $data);
+        $this->view('blog/album/show', $data);
     }
 
     private function check_image($image_id)

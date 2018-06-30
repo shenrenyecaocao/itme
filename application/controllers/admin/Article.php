@@ -47,9 +47,50 @@ class Article extends Base_admin
 
     public function edit($article_id)
     {
-        $data['title'] = '文章详情';
-        $data['article'] = $this->Bll_article->get_article_detail($article_id);
+        $data['title'] = '文章编辑';
+        $data['article'] = $this->_check_article($article_id);
+        $this->load->model('bll/Bll_category');
+        $data['categorys'] = $this->Bll_category->get_category_level_info(1);
+        $data['child_type'] = $data['article']['child_type'];
+        $data['father_type'] = $data['article']['father_type'];
+        $data['article_id'] = $article_id;
         $this->load->view('admin/article/edit', $data);
+    }
+
+    public function update($article_id)
+    {
+        if ($this->input->method() == 'post') {
+            if ($this->_validation_article()) {
+                $post = $this->input->post();
+                $result = $this->Bll_article->update_article($post, $article_id);
+                if ($result) {
+                    redirect(site_url('admin/article'));
+                } else {
+                    $this->create($article_id);
+                }
+            } else {
+                $this->edit($article_id);
+            }
+        } else {
+            redirect(site_url('admin/article/edit/' . $article_id));
+        }
+    }
+
+    public function show($article_id)
+    {
+        $data['title'] = '文章详情';
+        $data['article'] = $this->_check_article($article_id);
+        $this->load->view('admin/article/show', $data);
+    }
+
+    private function _check_article($article_id)
+    {
+        $article_info = $this->Bll_article->get_article_detail($article_id);
+        if (empty($article_info)) {
+            show_404();
+        } else {
+            return $this->Bll_article->get_article_by_article_id($article_id);
+        }
     }
 
     private function _validation_article()

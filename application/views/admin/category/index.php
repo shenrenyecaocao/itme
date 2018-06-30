@@ -19,7 +19,7 @@
               </tr>
               <?php foreach ($categorys as $index => $category) { ?>
               <tr>
-                <th><?php echo $index ?></th>
+                <th><?php echo $index + 1 ?></th>
               <?php foreach ($category_level as $level => $level_name) { ?>
                 <th><?php echo $category['level'] == $level ? $category['name'] : '' ?></th>
               <?php } ?>

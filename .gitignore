@@ -8,6 +8,7 @@ application/config/production/*.php
 !application/config/production/.gitkeep
 
 application/logs/*
+!application/logs/*.log
 !application/logs/.gitkeep
 
 vendor/*

@@ -1,4 +1,4 @@
-<?php  
+<?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 function debug($item)
@@ -23,4 +23,13 @@ function token($num = 10)
         $token .= $str[mt_rand(0, strlen($str) - 1)];
     }
     return $token;
+}
+
+function load_image($image_name=NULL)
+{
+    if ($image_name) {
+        return 'uploads/' . $image_name;
+    } else {
+        return "static/admin/images/article1.jpg";
+    }
 }
