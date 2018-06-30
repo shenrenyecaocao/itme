@@ -92,11 +92,11 @@ class MY_Model extends CI_Model
 
         if ($delete_flg === NULL)
         {
-            $this->db->where('delete_flg = 0');
+            $this->db->where('delete_flg = ' . $this->flg_false);
         }
         else
         {
-            $this->db->where('delete_flg = 1');
+            $this->db->where('delete_flg = ' . $this->flg_true);
         }
 
         $this->db->from($this->tablename());

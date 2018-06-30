@@ -1,7 +1,8 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
+require_once 'Base_admin.php';
 
-class Article extends MY_Controller
+class Article extends Base_admin
 {
     public function index()
     {

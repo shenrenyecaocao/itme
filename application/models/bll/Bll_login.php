@@ -12,15 +12,18 @@ class Bll_login extends CI_Model
         if ($result) {
             if ($result['password'] == $password) {
                 if ($result['active_status'] == $this->flg_false) {
-                    return 'no_active';
+                    $this->session->set_userdata('login_error', "no_active");
+                    return False;
                 }
                 unset($result['password']);
-                return TRUE;
+                return $result;
             } else {
-                return 'password_error';
+                $this->session->set_userdata('login_error', "password_error");
+                return False;
             }
         } else {
-            return 'email_error';
+            $this->session->set_userdata('login_error', "email_error");
+            return False;
         }
     }
 

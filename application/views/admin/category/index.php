@@ -5,21 +5,24 @@
         <?php $this->load->view('admin/common/side') ?>
         <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
           <br>
-          <h1 class="page-header">Dashboard</h1>
+          <h1 class="page-header">分类管理</h1>
+          <h3><a href="<?php echo site_url('admin/category/create') ?>">添加分类</a></h3>
           <div class="table-responsive">
-            <table class="table table-striped">
+            <table class="table table-striped table-bordered">
               <tr>
-                <th>index</th>
-                <th>Category</th>
-                <th>edit</th>
-                <th>delete</th>
+                <th width="15%"><input type="checkbox"></th>
+                <th width="20%">父类别</th>
+                <th width="20%">子类别</th>
+                <th width="15%">描述</th>
+                <th width="35%" style="text-align: center;">操作</th>
               </tr>
               <?php foreach ($categorys as $index => $category) { ?>
               <tr>
-                <td><?php echo $index ?></td>
-                <td><?php echo $category['name'] ?></td>
-                <td><a href="<?php echo base_url("admin/category/edit/{$category['category_id']}") ?>">edit</a></td>
-                <th><a href="<?php echo base_url("admin/category/delete/{$category['category_id']}") ?>">delete</a></th>
+                <th><?php echo $index ?></th>
+                <th><?php echo $category['level'] == 1 ? $category['name'] : '' ?></th>
+                <th><?php echo $category['level'] == 2 ? $category['name'] : '' ?></th>
+                <th><?php echo $category['description'] ?></th>
+                <th style="text-align: center;"><a href="<?php echo base_url("admin/category/edit/{$category['category_id']}") ?>">修改</a>&nbsp&nbsp<a href="<?php echo base_url("admin/category/delete/{$category['category_id']}") ?>">删除</a></th>
               </tr>
               <?php } ?>
             </table>

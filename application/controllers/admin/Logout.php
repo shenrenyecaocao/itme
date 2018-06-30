@@ -1,11 +1,11 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Logout extends CI_Controller 
+class Logout extends CI_Controller
 {
     public function index()
     {
-        unset($_SESSION['admin_userinfo']);
-        redirect('admin/login');
+        $this->session->unset_userdata('admin_info');
+        redirect(site_url('admin/login'));
     }
 }

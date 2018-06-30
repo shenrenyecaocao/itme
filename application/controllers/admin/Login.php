@@ -8,21 +8,24 @@ class Login extends MY_Controller
         $data['title'] = "后台登录";
         $data['sign_in_email_error'] = '';
         $data['sign_in_password_error'] = '';
+        $data['no_active'] = '';
         if ($this->input->method() == 'post' && $this->_login_validation()) {
             $this->load->model('bll/Bll_login');
             $this->config->load('login_config');
-
             $post = $this->input->post();
             $result = $this->Bll_login->check_login($post);
-            if ($result === TRUE) {
-                $this->session->set_userdata('current_admin', $result);
-                redirect('admin/dashboard');
-            } elseif ($result == 'email_error') {
-                $data['sign_in_email_error'] = $this->config->item('email_error');
-            } elseif ($result == 'password_error') {
-                $data['sign_in_password_error'] = $this->config->item('password_error');;
-            } elseif ($result == 'no_active') {
-                $data['sign_in_email_error'] = $this->config->item('no_active');
+            if ($result == TRUE) {
+                $this->session->set_userdata('admin_info', $result);
+                redirect(site_url('admin/dashboard'));
+            } else {
+                $login_error = $this->session->userdata('login_error');
+                if ($login_error == 'email_error') {
+                    $data['sign_in_email_error'] = $this->config->item('email_error');
+                } elseif ($result == 'password_error') {
+                    $data['sign_in_password_error'] = $this->config->item('password_error');;
+                } elseif ($result == 'no_active') {
+                    $data['no_active'] = $this->config->item('no_active');
+                }
             }
         }
         $this->load->view('admin/login/index', $data);

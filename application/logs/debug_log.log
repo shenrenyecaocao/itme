@@ -1,17 +1,11 @@
-2018-06-28 00:32:56
-array(1) {
-  ["image"]=>  array(5) {
-    ["name"]=>    string(36) "4a2baeb3ly1fs0j5gf98ij20f60fm79q.jpg"
-    ["type"]=>    string(10) "image/jpeg"
-    ["tmp_name"]=>    string(22) "C:\Windows\php73A2.tmp"
-    ["error"]=>    int(0)
-    ["size"]=>    int(105565)
-  }
-}
-
-2018-06-28 00:32:56
-array(2) {
-  ["title"]=>  string(3) "222"
-  ["content"]=>  string(9) "是多少"
+2018-06-30 12:12:04
+array(7) {
+  ["admin_id"]=>  string(1) "1"
+  ["name"]=>  string(12) "桑榆非晚"
+  ["email"]=>  string(16) "541885781@qq.com"
+  ["password"]=>  string(40) "63982e54a7aeb0d89910475ba6dbd3ca6dd4e5a1"
+  ["role_id"]=>  string(1) "0"
+  ["active_status"]=>  string(1) "1"
+  ["create_date"]=>  string(19) "2017-07-10 21:33:32"
 }
 
