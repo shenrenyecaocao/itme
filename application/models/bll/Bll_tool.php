@@ -39,12 +39,8 @@ class Bll_tool extends CI_Model
         $this->upload->initialize($config);
 
         if ($this->upload->do_upload($file)) {
-            $succ = $this->upload->data();
-            debug($succ);
-            return TRUE;
+            return $this->upload->data('file_name');
         } else {
-            $error = $this->upload->display_errors();
-            debug($error);
             return FALSE;
         }
     }

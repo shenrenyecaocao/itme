@@ -58,8 +58,11 @@ class Bll_article extends CI_Model
         if ($files[$field]['error'] == 0) {
             $this->load->model('bll/Bll_tool');
             $result = $this->Bll_tool->upload_file($field);
-            debug($result);
-            $data[$field] = $result;
+            if ($result != FALSE) {
+                $data[$field] = $result;
+            } else {
+                return FALSE;
+            }
         }
         $this->load->model('dal/Dal_article');
         return $this->Dal_article->insert($data);
@@ -79,7 +82,11 @@ class Bll_article extends CI_Model
         if ($files[$field]['error'] == 0) {
             $this->load->model('bll/Bll_tool');
             $result = $this->Bll_tool->upload_file($field);
-            $data[$field] = $result;
+            if ($result != FALSE) {
+                $data[$field] = $result;
+            } else {
+                return FALSE;
+            }
         }
         return $this->Dal_article->update($data, ['article_id' => $article_id]);
     }
