@@ -16,7 +16,7 @@ class Bll_article extends CI_Model
         $where = NULL;
         $limit = 3;
         $offset = 0;
-        $order = 'update_date';
+        $order = 'update_date DESC';
         return $this->Dal_article->get_list($param, $where, $limit, $offset, $order);
     }
 
@@ -27,7 +27,7 @@ class Bll_article extends CI_Model
         $where = NULL;
         $limit = 3;
         $offset = 3;
-        $order = 'update_date';
+        $order = 'update_date DESC';
         return $this->Dal_article->get_list($param, $where, $limit, $offset, $order);
     }
 
