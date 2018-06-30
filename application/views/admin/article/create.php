@@ -24,20 +24,28 @@
                     </div>
                 </div>
                 <div class="row form-group">
-                    <label class="control-label col-lg-1" for="image">图片</label>
+                    <label class="control-label col-lg-1" for="article_image">图片</label>
                     <div class="col-lg-3 col-md-4">
-                        <input name="image" id="image" type="file">
+                        <input name="article_image" id="article_image" type="file">
                     </div>
                 </div>
 
                 <div class="row form-group">
-                    <label class="control-label col-lg-1" for="article_type">类型</label>
+                    <label class="control-label col-lg-1" for="article_type">分类</label>
                     <div class="col-lg-3 col-md-4">
-                      <select class="form-control" name="article_type">
-                        <option value="">未选择</option>
-                        <option value="1">1</option>
-                        <option value="2">2</option>
+                      <select class="form-control" name="father_type" id="level_1">
+                        <option value="">选择一级分类</option>
+                    <?php foreach ($categorys as $index => $category) { ?>
+                        <option value="<?php echo $category['category_id'] ?>"><?php echo $category['name'] ?></option>
+                    <?php } ?>
                       </select>
+                      <?php echo form_error('father_type', '<p class="help-block" style="color: red">', '</p>') ?>
+                    </div>
+                    <div class="col-lg-3 col-md-4">
+                      <select class="form-control" name="child_type" id="level_2">
+                        <option value="">选择二级分类</option>
+                      </select>
+                      <?php echo form_error('child_type', '<p class="help-block" style="color: red">', '</p>') ?>
                     </div>
                 </div>
 
@@ -56,3 +64,25 @@
 
 <?php $this->load->view('admin/common/footer') ?>
 
+<script type="text/javascript">
+    $(function(){
+        $("#level_1").change(function(){
+            $.ajax({
+                url:'<?php echo site_url('admin/category/get_category_level_2') ?>',
+                type:'POST',
+                async:true,
+                dataType:'json',
+                data:{
+                    category_id: $(this).val()
+                },
+                success:function(data,textStatus,jqXHR){
+                    var html = '<option value="">选择二级分类</option>'
+                    $.each(data ,function(i,n) {
+                        html += '<option value="' + n['category_id'] + '">' + n['name'] + '</option>';
+                    });
+                    $("#level_2").html(html);
+                }
+            })
+        });
+    })
+</script>

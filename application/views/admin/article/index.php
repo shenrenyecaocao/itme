@@ -10,19 +10,19 @@
           <div class="table-responsive">
             <table class="table table-striped table-bordered">
               <tr>
-                <th><input type="checkbox"></th>
-                <th>标题</th>
-                <th>内容</th>
-                <th>图片</th>
-                <th width="100">创建日期</th>
-                <th style="text-align: center;">操作</th>
+                <th width="10%"><input type="checkbox"></th>
+                <th width="20%">标题</th>
+                <th width="25%">内容</th>
+                <th width="10%">图片</th>
+                <th width="15%">创建日期</th>
+                <th width="20%" style="text-align: center;">操作</th>
               </tr>
               <?php foreach ($articles as $index => $article) { ?>
               <tr>
                 <th><?php echo $index ?></th>
                 <th><a href="<?php echo base_url('admin/article/show/' . $article['article_id']) ?>"><?php echo $article['title'] ?></a></th>
-                <th>sss</th>
-                <th><img class="img-rounded" alt="..." src="http://wx2.sinaimg.cn/mw600/0076BSS5ly1fsoubsy924j30dw0i2dic.jpg" height="40" width="45"></th>
+                <th><?php echo $article['content'] ?></th>
+                <th><img class="img-rounded" alt="封面" src="<?php echo $article['image'] ? $article['image'] : 'static/admin/images/article1.jpg' ?>" height="40" width="45"></th>
                 <th width="100"><?php echo $article['create_date'] ?></th>
                 <th style="text-align: center;"><a href="<?php echo base_url('admin/article/edit/' . $article['article_id']) ?>">编辑</a>&nbsp&nbsp<a href="<?php echo base_url('admin/article/delete/' . $article['article_id']) ?>">删除</a></th>
               </tr>

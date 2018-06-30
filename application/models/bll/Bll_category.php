@@ -29,6 +29,13 @@ class Bll_category extends CI_Model
         return $this->Dal_category->get_list($param=$param, $where=['level' => $level]);
     }
 
+    public function get_category_leve2_by_fid($fid)
+    {
+        $this->load->model('dal/Dal_category');
+        $param = 'name, category_id';
+        return $this->Dal_category->get_list($param=$param, $where=['fid' => $fid]);
+    }
+
     public function store_category($post)
     {
         $this->load->model('dal/Dal_category');
@@ -39,5 +46,22 @@ class Bll_category extends CI_Model
         $data['update_date'] = date("Y-m-d H:i:s");
         $data['create_date'] = date("Y-m-d H:i:s");
         return $this->Dal_category->insert($data);
+    }
+
+    public function query_category_by_id($category_id)
+    {
+        $this->load->model('dal/Dal_category');
+        return $this->Dal_category->find(["category_id" => $category_id], ["name", "description", "fid", "level"]);
+    }
+
+    public function update_category($category_id, $post)
+    {
+        $this->load->model('dal/Dal_category');
+        $data['level'] = $post['level'];
+        $data['fid'] = $post['fid'];
+        $data['name'] = $post['name'];
+        $data['description'] = $post['description'];
+        $data['update_date'] = date("Y-m-d H:i:s");
+        return $this->Dal_category->update($data, ['category_id' => $category_id]);
     }
 }

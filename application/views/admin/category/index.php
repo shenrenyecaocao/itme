@@ -11,18 +11,20 @@
             <table class="table table-striped table-bordered">
               <tr>
                 <th width="15%"><input type="checkbox"></th>
-                <th width="20%">父类别</th>
-                <th width="20%">子类别</th>
+              <?php foreach ($category_level as $level => $level_name) { ?>
+                <th width="20%"><?php echo $level_name ?></th>
+              <?php } ?>
                 <th width="15%">描述</th>
                 <th width="35%" style="text-align: center;">操作</th>
               </tr>
               <?php foreach ($categorys as $index => $category) { ?>
               <tr>
                 <th><?php echo $index ?></th>
-                <th><?php echo $category['level'] == 1 ? $category['name'] : '' ?></th>
-                <th><?php echo $category['level'] == 2 ? $category['name'] : '' ?></th>
+              <?php foreach ($category_level as $level => $level_name) { ?>
+                <th><?php echo $category['level'] == $level ? $category['name'] : '' ?></th>
+              <?php } ?>
                 <th><?php echo $category['description'] ?></th>
-                <th style="text-align: center;"><a href="<?php echo base_url("admin/category/edit/{$category['category_id']}") ?>">修改</a>&nbsp&nbsp<a href="<?php echo base_url("admin/category/delete/{$category['category_id']}") ?>">删除</a></th>
+                <th style="text-align: center;"><a href="<?php echo site_url("admin/category/edit/{$category['category_id']}") ?>">修改</a>&nbsp&nbsp<a href="<?php echo site_url("admin/category/delete/{$category['category_id']}") ?>">删除</a></th>
               </tr>
               <?php } ?>
             </table>
