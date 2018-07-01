@@ -3,7 +3,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Bll_image extends CI_Model
 {
-    public function get_image_per_page_list()
+    public function get_image_per_page_list($page_size)
     {
         $this->load->model('dal/Dal_image');
         $this->load->model('bll/Bll_tool');
@@ -12,7 +12,7 @@ class Bll_image extends CI_Model
         $config = $this->config->item('pagination');
         $config['base_url'] = $_SERVER['REDIRECT_URL'];
         $config['total_rows'] = $total_rows;
-        $page_size = $config['per_page'];
+        $config['per_page'] = $page_size;
         $current_page = $this->input->get('page') ? $this->input->get('page') : 1;
         $this->Bll_tool->pagination($config);
         $start = ($current_page - 1) * $page_size;

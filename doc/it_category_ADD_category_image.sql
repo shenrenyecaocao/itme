@@ -1,0 +1,1 @@
+ALTER TABLE  `it_category` ADD  `category_image` VARCHAR( 125 ) NULL DEFAULT NULL AFTER  `description`

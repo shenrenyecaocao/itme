@@ -25,10 +25,16 @@ function token($num = 10)
     return $token;
 }
 
-function load_image($image_name=NULL)
+function load_image($image_name, $path='')
 {
     if ($image_name) {
-        return 'uploads/' . $image_name;
+        $root_path = "uploads/";
+        if ($path == '') {
+            $image_path = $root_path . $image_name;
+        } else {
+            $image_path = $root_path . $path . '/' . $image_name;
+        }
+        return $image_path;
     } else {
         return "static/admin/images/article1.jpg";
     }

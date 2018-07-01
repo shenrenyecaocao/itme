@@ -3,8 +3,8 @@
     <div class="text-left">
       <form class="form-inline" method="get" action="<?php echo site_url('admin/image/index/' . $type) ?>">
         <div class="form-group">
-          <label for="key_word">搜索：</label>
-          <input type="text" class="form-control" id="key_word" placeholder="图片ID或URL">
+          <label for="image">搜索：</label>
+          <input type="text" class="form-control" name="image" id="image" placeholder="图片ID或URL">
         </div>
         <button type="submit" class="btn btn-default"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></button>
       </form>

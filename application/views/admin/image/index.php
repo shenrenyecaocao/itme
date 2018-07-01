@@ -16,6 +16,15 @@
         </div>
       </div>
     </div>
-
 <?php $this->load->view('admin/common/footer') ?>
+<script type="text/javascript">
+  $(function(){
+    $("a[href='#mymodal']").click(function(){
+      var category_id = $(this).data('id');
+      var post_url = '<?php echo base_url('admin/image/category') ?>';
+      $("form").attr("action", post_url + "/" + category_id);
+    })
+  })
+
+</script>
 

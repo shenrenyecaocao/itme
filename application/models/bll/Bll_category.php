@@ -25,7 +25,7 @@ class Bll_category extends CI_Model
     public function get_category_level_info($level)
     {
         $this->load->model('dal/Dal_category');
-        $param = 'name, category_id';
+        $param = 'name, category_id, category_image, description';
         return $this->Dal_category->get_list($param=$param, $where=['level' => $level]);
     }
 
@@ -63,5 +63,25 @@ class Bll_category extends CI_Model
         $data['description'] = $post['description'];
         $data['update_date'] = date("Y-m-d H:i:s");
         return $this->Dal_category->update($data, ['category_id' => $category_id]);
+    }
+
+    public function cheack_category_level_1($category_id)
+    {
+        $this->load->model('dal/Dal_category');
+        return $this->Dal_category->find(['category_id' => $category_id, 'level' => 1]);
+    }
+
+
+    public function upload_category_image($category_id)
+    {
+        $this->load->model('bll/Bll_tool');
+        $field = 'category_image';
+        $result = $this->Bll_tool->upload_file($field, 'category');
+        if ($result != FALSE) {
+            $this->load->model('Dal_category');
+            return $this->Dal_category->update(['category_image' => $result], ['category_id' => $category_id]);
+        } else {
+            return FALSE;
+        }
     }
 }
