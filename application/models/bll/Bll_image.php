@@ -10,7 +10,7 @@ class Bll_image extends CI_Model
         $this->config->load('pagination', TRUE, TRUE);
         $total_rows = $this->Dal_image->get_image_count();
         $config = $this->config->item('pagination');
-        $config['base_url'] = site_url('blog/album');
+        $config['base_url'] = $_SERVER['REDIRECT_URL'];
         $config['total_rows'] = $total_rows;
         $page_size = $config['per_page'];
         $current_page = $this->input->get('page') ? $this->input->get('page') : 1;

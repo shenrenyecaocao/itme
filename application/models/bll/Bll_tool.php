@@ -28,20 +28,24 @@ class Bll_tool extends CI_Model
         $this->pagination->initialize($config);
     }
 
-    public function upload_file($file)
+    public function upload_file($file, $path='')
     {
-        $config['upload_path']      = './uploads/';
+        $file_root_path             = $path ? './uploads/' . $path . '/' : './uploads/';
+        $config['upload_path']      = $file_root_path;
         $config['allowed_types']    = 'gif|jpg|png';
-        $config['max_size']     = 1024;
+        $config['max_size']         = 1024;
         $config['max_width']        = 1024;
         $config['max_height']       = 768;
+        $file_name = $_FILES[$file]['name'];
+        if (file_exists($file_root_path . $file_name)) {
+            return $file_name;
+        }
         $this->load->library('upload', $config);
         $this->upload->initialize($config);
-
         if ($this->upload->do_upload($file)) {
             return $this->upload->data('file_name');
         } else {
-            $error_msg = $this->upload->display_errors();
+            $error_msg = $this->upload->display_errors('', '');
             $this->session->set_flashdata('upload_error', $error_msg);
             return FALSE;
         }

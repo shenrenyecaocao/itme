@@ -68,8 +68,6 @@
     <script src="static/index/js/jquery.unveil.min.js"></script>
     <script src="static/index/js/jquery.scrollUp.min.js"></script>
     <script src="static/index/js/toc.min.js"></script>
-    <script src="static/index/js/jquery.matchHeight-min.js"></script>
-    <script src="static/index/js/site.min.js"></script>
 
   <script>
     $(document).ready(function(){
