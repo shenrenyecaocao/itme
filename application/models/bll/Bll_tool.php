@@ -34,8 +34,8 @@ class Bll_tool extends CI_Model
         $config['upload_path']      = $file_root_path;
         $config['allowed_types']    = 'gif|jpg|png';
         $config['max_size']         = 1024;
-        $config['max_width']        = 1024;
-        $config['max_height']       = 768;
+        // $config['max_width']        = 1024;
+        // $config['max_height']       = 768;
         $file_name = $_FILES[$file]['name'];
         if(!file_exists($file_root_path)) {
             mkdir($file_root_path, 0777, TRUE);
