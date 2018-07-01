@@ -37,6 +37,9 @@ class Bll_tool extends CI_Model
         $config['max_width']        = 1024;
         $config['max_height']       = 768;
         $file_name = $_FILES[$file]['name'];
+        if(!file_exists($file_root_path)) {
+            mkdir($file_root_path, 0777, TRUE);
+        }
         if (file_exists($file_root_path . $file_name)) {
             return $file_name;
         }
