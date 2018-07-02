@@ -48,7 +48,7 @@
         <div class="col-lg-4">
           <img class="img-circle" src="<?php echo load_image($article['article_image']) ?>" alt="Generic placeholder image" width="140" height="140">
           <h2><?php echo $article['title'] ?></h2>
-          <p><?php echo $article['content'] ?></p>
+          <p><?php echo nl2br(substr($article['content'], 0, 50)) ?></p>
           <p><a class="btn btn-default" href="<?php echo site_url('blog/acticle/show/' . $article['article_id']) ?>" role="button">详细 &raquo;</a></p>
         </div><!-- /.col-lg-4 -->
       <?php } ?>
