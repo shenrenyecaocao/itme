@@ -62,7 +62,7 @@
         <div class="col-md-7">
           <!-- <h2 class="featurette-heading">First featurette heading. <span class="text-muted">It'll blow your mind.</span></h2> -->
           <h2 class="featurette-heading"><?php echo $article['title'] ?></h2>
-          <p class="lead"><?php echo $article['content'] ?></p>
+          <p class="lead"><?php echo html_encode(substr($article['content'], 0, 200)) ?></p>
         </div>
         <div class="col-md-5">
           <img class="featurette-image img-responsive center-block" src="<?php echo load_image($article['article_image']) ?>" alt="Generic placeholder image">
