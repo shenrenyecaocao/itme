@@ -39,3 +39,9 @@ function load_image($image_name, $path='')
         return "static/admin/images/article1.jpg";
     }
 }
+
+function html_encode($str)
+{
+    $str = str_replace(" ", "&nbsp;", $str);
+    return nl2br($str);
+}

@@ -12,7 +12,7 @@
                     <h1><p class="text-center"><?php echo $article['title']  ?></p></h1>
                 </li>
                 <li>
-                    <p class="text-left lead"><?php echo nl2br($article['content']) ?></p>
+                    <p class="text-left lead"><?php echo html_encode($article['content']) ?></p>
                 </li>
                 <li>
                     <p class="text-justify"><?php echo $article['father_type_name'] ?>
