@@ -43,5 +43,5 @@ function load_image($image_name, $path='')
 function html_encode($str)
 {
     $str = str_replace(" ", "&nbsp;", $str);
-    return nl2br($str);
+    return htmlentities(nl2br($str));
 }
