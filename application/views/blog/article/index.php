@@ -29,7 +29,7 @@
                         <ul class="menu">
         <li class="nav-current" role="presentation"><a href="<?php echo site_url('blog/article') ?>">首页</a></li>
 <?php foreach ($categorys as $index => $category) { ?>
-        <li  role="presentation"><a href="<?php echo site_url('blog/article/' . $category['category_id']) ?>"><?php echo $category['name'] ?></a></li>
+        <li  role="presentation"><a href="<?php echo site_url('blog/article/index/' . $category['category_id']) ?>"><?php echo $category['name'] ?></a></li>
 <?php } ?>
         <li  role="presentation"><a href="<?php echo site_url('blog/album') ?>">相册</a></li>
         <li  role="presentation"><a href="javascript::void(0)">关于</a></li>

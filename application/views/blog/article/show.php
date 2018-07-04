@@ -27,9 +27,9 @@
                     </div>
                     <div class="collapse navbar-collapse" id="main-menu">
                         <ul class="menu">
-        <li class="nav-current" role="presentation"><a href="<?php echo site_url() ?>">首页</a></li>
+        <li class="nav-current" role="presentation"><a href="<?php echo site_url('blog/article') ?>">首页</a></li>
 <?php foreach ($categorys as $index => $category) { ?>
-        <li  role="presentation"><a href="<?php echo site_url('blog/article/' . $category['category_id']) ?>"><?php echo $category['name'] ?></a></li>
+        <li  role="presentation"><a href="<?php echo site_url('blog/article/index/' . $category['category_id']) ?>"><?php echo $category['name'] ?></a></li>
 <?php } ?>
         <li  role="presentation"><a href="<?php echo site_url('blog/album') ?>">相册</a></li>
         <li  role="presentation"><a href="javascript::void(0)">关于</a></li>
@@ -53,7 +53,7 @@
     <div class="post-head">
         <h1 class="post-title"><a href="/ghost-5-years/"><?php echo $article_info['title'] ?></a></h1>
         <div class="post-meta">
-            <span class="author">作者：<a href="/author/wangsai/">王琪</a></span> &bull;
+            <span class="author">作者：<a href="javascript::void(0)">王琪</a></span> &bull;
             <?php $_date = date("Y年m月d日", strtotime($article_info['create_date'])) ?>
             <time class="post-date" datetime="<?php echo $_date ?>" title="<?php echo $_date ?>"><?php echo $_date ?></time>
         </div>

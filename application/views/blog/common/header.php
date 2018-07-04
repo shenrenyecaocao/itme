@@ -118,11 +118,11 @@ var _hmt = _hmt || [];
 <?php foreach ($categorys as $index => $category) { ?>
           <?php if ($category['level'] == 1) { ?>
           <li class="dropdown">
-            <a href="<?php echo site_url('blog/article/' . $category['category_id']) ?>" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><?php echo $category['name'] ?><span class="caret"></span></a>
+            <a href="<?php echo site_url('blog/article/index/' . $category['category_id']) ?>" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><?php echo $category['name'] ?><span class="caret"></span></a>
             <ul class="dropdown-menu">
     <?php foreach ($categorys as $k => $v) { ?>
               <?php if ($category['category_id'] == $v['fid']) { ?>
-              <li><a href="<?php echo site_url('blog/article/' . $v['category_id']) ?>"><?php echo $v['name'] ?></a></li>
+              <li><a href="<?php echo site_url('blog/article/index/' . $v['category_id']) ?>"><?php echo $v['name'] ?></a></li>
               <?php } ?>
     <?php } ?>
             </ul>
