@@ -59,7 +59,7 @@
         </div>
     </div>
     <div class="post-content">
-        <p><?php echo $article_info['content'] ?></p>
+        <p><?php echo html_encode($article_info['content']) ?></p>
     </div>
 
     <footer class="post-footer clearfix">
