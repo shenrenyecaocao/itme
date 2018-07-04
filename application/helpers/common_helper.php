@@ -42,7 +42,9 @@ function load_image($image_name, $path='')
 
 function html_encode($str)
 {
-    // $str = str_replace(" ", "&nbsp;", $str);
-    $str = htmlentities($str);
+    $str = str_replace(" ", "&nbsp;", $str);
+    $str = str_replace("<", "&lt;", $str);
+    $str = str_replace(">", "&gt;", $str);
+    $str = str_replace("&", "&amp;", $str);
     return nl2br($str);
 }
