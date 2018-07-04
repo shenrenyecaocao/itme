@@ -69,11 +69,6 @@
     <script src="static/index/js/jquery.scrollUp.min.js"></script>
     <script src="static/index/js/toc.min.js"></script>
 
-  <script>
-    $(document).ready(function(){
-        $('#qqgroup').text(qqgroup);
-    });
-  </script>
   <!-- 以下是 www.bootcss.com 网站所使用的统计代码，如果你使用本页面作为自己的模板，请将下面的统计代码删掉！！！ -->
       <script type="text/javascript">
       var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");

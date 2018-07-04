@@ -23,6 +23,16 @@
 
     <!-- Custom styles for this template -->
     <link href="static/index/css/carousel.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="static/index/css/screen.css" />
+        <script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?6338835ad35c6d950a554fdedb598e48";
+  var s = document.getElementsByTagName("script")[0];
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
       <style type="text/css">
     .glyphicon { margin-right:5px; }
     .btn-wrapper{
