@@ -37,6 +37,22 @@ class Image extends Base_admin
         }
     }
 
+    public function action()
+    {
+        $image_ids = $this->input->post('image_id');
+        $action = $this->input->post('action');
+        if ( ! empty($image_ids) && in_array($action, ["delete", "support"])) {
+            $data['action'] = $action;
+            $this->load->model('bll/Bll_image');
+            if ($action == "delete") {
+                $data['result'] = $this->Bll_image->delete_image($image_ids);
+            } else {
+                $data['result'] = $this->Bll_image->support_image($image_ids);
+            }
+            echo json_encode($data);
+        }
+    }
+
     private function _cheack_category_id($category_id)
     {
         $this->load->model('bll/Bll_category');

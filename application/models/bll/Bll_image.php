@@ -36,4 +36,17 @@ class Bll_image extends CI_Model
         $this->load->model('dal/Dal_image');
         return $this->Dal_image->find(["image_id" => $image_id], ["image_url", "create_date", "update_date"]);
     }
+
+    public function support_image($image_ids)
+    {
+        $this->load->model('dal/Dal_image');
+        return $this->Dal_image->support_images($image_ids);
+    }
+
+    public function delete_image($image_ids)
+    {
+        $this->load->model('dal/Dal_image');
+        return $this->Dal_image->update_images($image_ids, "delete()");
+
+    }
 }
