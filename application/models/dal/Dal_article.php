@@ -5,7 +5,7 @@ class Dal_article extends MY_Model
 {
     public $table = 'article';
 
-    public function query_article_list($field, $keyword, $start, $page_size, $article_ids)
+    public function query_article_list($field, $start, $page_size, $article_ids)
     {
         $param = 'article_id, content, title, article_image, c.name as ' . $field . '_name, a.update_date, a.create_date';
         if ( ! empty($article_ids)) {
@@ -13,10 +13,6 @@ class Dal_article extends MY_Model
             $this->db->from($this->table . ' as a');
             $this->db->join('category as c', 'a.' . $field . ' = c.category_id', 'LEFT');
             $this->db->where_in('article_id', $article_ids, FALSE);
-            if ($keyword) {
-                $this->db->like('title', $keyword);
-                $this->db->or_like('content', $keyword);
-            }
             $this->db->order_by('a.update_date', 'DESC');
             $this->db->limit($page_size, $start);
             return $this->db->get()->result_array();
@@ -25,15 +21,11 @@ class Dal_article extends MY_Model
         }
     }
 
-    public function article_count($keyword, $article_ids)
+    public function article_count($article_ids)
     {
         if ( ! empty($article_ids)) {
             $this->db->select('article_id');
             $this->db->from($this->table);
-            if ($keyword) {
-                $this->db->like('title', $keyword);
-                $this->db->or_like('content', $keyword);
-            }
             $this->db->where_in('article_id', $article_ids, FALSE);
             return $this->db->count_all_results();
         } else {
@@ -41,12 +33,18 @@ class Dal_article extends MY_Model
         }
     }
 
-    public function query_category_of_article_id($category_id)
+    public function query_article_id($keyword, $category_id)
     {
         $this->load->model('dal/Dal_article');
         $this->db->select('article_id');
         $this->db->from($this->table);
-        $this->db->or_where(['child_type' => $category_id, 'father_type' => $category_id]);
+        if ($keyword) {
+            $this->db->like('title', $keyword);
+            $this->db->or_like('content', $keyword);
+        }
+        if ($category_id) {
+            $this->db->or_where(['child_type' => $category_id, 'father_type' => $category_id]);
+        }
         $article_ids = $this->db->get()->result_array();
         $articles = [];
         foreach ($article_ids as $key => $value) {

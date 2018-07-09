@@ -8,8 +8,8 @@ class Bll_article extends CI_Model
         $this->load->model('dal/Dal_article');
         $this->load->model('bll/Bll_tool');
         $keyword = $this->input->get('keyword');
-        $article_ids = $this->Dal_article->query_category_of_article_id($category_id);
-        $total_rows = $this->Dal_article->article_count(trim($keyword), $article_ids);
+        $article_ids = $this->Dal_article->query_article_id(trim($keyword), $category_id);
+        $total_rows = count($article_ids);
         $config = $this->config->item('pagination');
         $config['base_url'] = $_SERVER['REDIRECT_URL'];
         $config['total_rows'] = $total_rows;
@@ -20,7 +20,7 @@ class Bll_article extends CI_Model
         $temp_arr = [];
         $fields = ['child_type', 'father_type'];
         foreach ($fields as $field) {
-            $temp_arr[$field] = $this->Dal_article->query_article_list($field, trim($keyword), $start, $page_size, $article_ids);
+            $temp_arr[$field] = $this->Dal_article->query_article_list($field, $start, $page_size, $article_ids);
         }
         $article_list = $temp_arr[$fields[0]];
         foreach ($temp_arr[$fields[1]] as $index => $value) {
