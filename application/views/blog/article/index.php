@@ -47,6 +47,15 @@
             <div class="row">
 
                 <main class="col-md-8 main-content">
+<?php
+if (empty($article_list)) {
+?>
+<h3>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+对不起，请等待博主发表相关文章！</h3>
+
+<?php
+} ?>
+
 <?php foreach ($article_list as $index => $article) { ?>
 <article id=111 class="post">
 

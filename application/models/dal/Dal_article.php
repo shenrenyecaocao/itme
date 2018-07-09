@@ -8,33 +8,37 @@ class Dal_article extends MY_Model
     public function query_article_list($field, $keyword, $start, $page_size, $article_ids)
     {
         $param = 'article_id, content, title, article_image, c.name as ' . $field . '_name, a.update_date, a.create_date';
-        $this->db->select($param);
-        $this->db->from($this->table . ' as a');
-        $this->db->join('category as c', 'a.' . $field . ' = c.category_id', 'LEFT');
         if ( ! empty($article_ids)) {
+            $this->db->select($param);
+            $this->db->from($this->table . ' as a');
+            $this->db->join('category as c', 'a.' . $field . ' = c.category_id', 'LEFT');
             $this->db->where_in('article_id', $article_ids, FALSE);
+            if ($keyword) {
+                $this->db->like('title', $keyword);
+                $this->db->or_like('content', $keyword);
+            }
+            $this->db->order_by('a.update_date', 'DESC');
+            $this->db->limit($page_size, $start);
+            return $this->db->get()->result_array();
+        } else {
+            return [];
         }
-        if ($keyword) {
-            $this->db->like('title', $keyword);
-            $this->db->or_like('content', $keyword);
-        }
-        $this->db->order_by('a.update_date', 'DESC');
-        $this->db->limit($page_size, $start);
-        return $this->db->get()->result_array();
     }
 
     public function article_count($keyword, $article_ids)
     {
-        $this->db->select('article_id');
-        $this->db->from($this->table);
-        if ($keyword) {
-            $this->db->like('title', $keyword);
-            $this->db->or_like('content', $keyword);
-        }
         if ( ! empty($article_ids)) {
+            $this->db->select('article_id');
+            $this->db->from($this->table);
+            if ($keyword) {
+                $this->db->like('title', $keyword);
+                $this->db->or_like('content', $keyword);
+            }
             $this->db->where_in('article_id', $article_ids, FALSE);
+            return $this->db->count_all_results();
+        } else {
+            return 0;
         }
-        return $this->db->count_all_results();
     }
 
     public function query_category_of_article_id($category_id)
