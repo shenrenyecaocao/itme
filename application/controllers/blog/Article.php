@@ -15,7 +15,7 @@ class Article extends Base_blog
     public function index($category_id=NULL)
     {
         $data['title'] = "个人博客";
-        $page_size = 2;
+        $page_size = 8;
         $article_list_info = $this->Bll_article->get_article_list($page_size, $category_id);
         $data['article_list'] = $article_list_info['article_list'];
         $data['current_page'] = $article_list_info['current_page'];
