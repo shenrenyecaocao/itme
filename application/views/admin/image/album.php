@@ -90,7 +90,7 @@
                 checkbox.push(image_id);
             }
             if (checkbox.length > 0 ) {
-                image_action(checkbox, 'support');
+                image_action(checkbox, 'delete');
             }
         })
 
@@ -117,7 +117,7 @@
                 dataType:'json',
                 success:function(data){
                     result = data.result ? true : false;
-                    if (action == "delete" && result) {
+                    if (result) {
                         window.location.reload();
                     }
                 }
