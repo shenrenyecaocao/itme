@@ -57,7 +57,7 @@
   <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
-    <script src="static/index/js/jquery-3.1.1.min.js"></script>
+    <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
     <script>window.jQuery || document.write('<script src="static/index/js/jquery.min.js"><\/script>')</script>
     <script src="static/index/js/bootstrap.min.js"></script>
     <!-- Just to make our placeholder images work. Don't actually copy the next line! -->
@@ -68,18 +68,19 @@
     <script src="static/index/js/jquery.unveil.min.js"></script>
     <script src="static/index/js/jquery.scrollUp.min.js"></script>
     <script src="static/index/js/toc.min.js"></script>
-  <!-- 以下是 www.bootcss.com 网站所使用的统计代码，如果你使用本页面作为自己的模板，请将下面的统计代码删掉！！！ -->
-      <script type="text/javascript">
-      var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
-      document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3F3d8e7fc0de8a2a75f2ca3bfe128e6391' type='text/javascript'%3E%3C/script%3E"));
-      </script>
-
-      <script type="text/javascript">
-  var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
-  document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3F079fac161efc4b2a6f31e80064f14e82' type='text/javascript'%3E%3C/script%3E"));
-  </script>
-
-  <!-- 上面是 www.bootcss.com 网站所使用的统计代码，如果你使用本页面作为自己的模板，请将上面面的统计代码删掉！！！ -->
 </body>
 </html>
 
+<script type="text/javascript">
+    window.onload = function () {
+        var log = console.log
+        var dropdown_menu = $('.dropdown-menu');
+        dropdown_menu.each(function(){
+            if ($(this).children('li').length == 0) {
+                var a_text = $(this).prev().text();
+                var a_href = $(this).prev().attr('href');
+                $(this).parent().html('<a href=" ' + a_href + '">' + a_text + '</a>')
+            }
+        });
+    };
+</script>

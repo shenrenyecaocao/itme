@@ -19,16 +19,7 @@
       echo $article == 'article' ? link_tag('static/index/css/screen.css', "stylesheet", "text/css") : '';
      ?>
     <link href="static/index/css/carousel.css" rel="stylesheet">
-<script>
-var _hmt = _hmt || [];
-(function() {
-  var hm = document.createElement("script");
-  hm.src = "https://hm.baidu.com/hm.js?6338835ad35c6d950a554fdedb598e48";
-  var s = document.getElementsByTagName("script")[0];
-  s.parentNode.insertBefore(hm, s);
-})();
-</script>
-      <style type="text/css">
+<style type="text/css">
     .glyphicon { margin-right:5px; }
     .btn-wrapper{
       padding: 1em 0;
@@ -188,15 +179,5 @@ var _hmt = _hmt || [];
       </div>
     </div>
   </div>
-<script type="text/javascript">
-    window.onload = function () {
-        var log = console.log
-        var dropdown_menu = $('.dropdown-menu');
-        dropdown_menu.each(function(){
-            if ($(this).children('li').length == 0) {
-                $(this).prev().children('span').remove();
-            }
-        });
-    };
-</script>
+
 

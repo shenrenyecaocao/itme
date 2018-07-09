@@ -6,10 +6,10 @@
 <div class="widget">
     <h4 class="title">联系博主</h4>
     <div class="content community">
-        <p>QQ：541885781</p>
-        <p>微信wq541885781</p>
-        <p>新浪微博 <a href="https://weibo.com/2476483980/profile?topnav=1&wvr=6&is_all=1" target="view_window">干杯------</a></p>
-        <p>github <a href="https://github.com/shenrenyecaocao">shenrenyecaocao</a></p>
+        <p>QQ： 541885781</p>
+        <p>微信: wq541885781</p>
+        <p>新浪微博: <a href="https://weibo.com/2476483980/profile?topnav=1&wvr=6&is_all=1" target="view_window">干杯------</a></p>
+        <p>github: <a href="https://github.com/shenrenyecaocao">shenrenyecaocao</a></p>
         <p>邮箱联系我： <br><strong>shenrenyecaocao@sina.com</strong>
             <br><strong>shenrenyecaocao@gmail.com</strong></p>
     </div>
