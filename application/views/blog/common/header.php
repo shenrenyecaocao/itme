@@ -13,17 +13,12 @@
     <!-- Bootstrap core CSS -->
     <link href="static/index/css/bootstrap.min.css" rel="stylesheet">
     <link href="static/index/css/site.min.css" rel="stylesheet">
-
-    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-    <link href="static/index/css/ie10-viewport-bug-workaround.css" rel="stylesheet">
-
-    <link rel="stylesheet" href="static/index/css/signin.css" rel="stylesheet">
-
-    <script src="static/index/js/ie-emulation-modes-warning.js"></script>
-
     <!-- Custom styles for this template -->
+    <?php
+      $article = $this->uri->segment(2);
+      echo $article == 'article' ? link_tag('static/index/css/screen.css', "stylesheet", "text/css") : '';
+     ?>
     <link href="static/index/css/carousel.css" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="static/index/css/screen.css" />
         <script>
 var _hmt = _hmt || [];
 (function() {

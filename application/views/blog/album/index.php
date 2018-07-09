@@ -10,10 +10,10 @@
 <div class="container projects">
       <div id="products" class="row list-group">
     <?php foreach ($images as $index => $image) { ?>
-                <div class="item  col-xs-4 col-lg-4">
-                    <div class="thumbnail" style="height:350px; width: 400px">
+                <div class="item  col-xs-3 col-lg-3">
+                    <div class="thumbnail" style="width: 400px; height:380px;">
                         <a href="<?php echo site_url('blog/album/show/' . $image['image_id'] . '/' . $current_page) ?>">
-                          <img class="group list-group-image" width="400px" height="350px" src="<?php echo $image['image_url'] ?>" alt="" />
+                          <img class="group list-group-image" style="margin: 0 auto; width: 300px; height: 380px" src="<?php echo $image['image_url'] ?>" alt="" />
                         </a>
                     </div>
                 </div>

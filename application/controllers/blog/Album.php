@@ -8,7 +8,7 @@ class Album extends Base_blog
     {
         $data['title'] = "相册";
         $this->load->model('bll/Bll_image');
-        $page_size = 9;
+        $page_size = 12;
         $image_info = $this->Bll_image->get_image_per_page_list($page_size);
         $data = array_merge($data, $image_info);
         $this->view('blog/album/index', $data);
