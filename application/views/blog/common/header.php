@@ -188,4 +188,15 @@ var _hmt = _hmt || [];
       </div>
     </div>
   </div>
+<script type="text/javascript">
+    window.onload = function () {
+        var log = console.log
+        var dropdown_menu = $('.dropdown-menu');
+        dropdown_menu.each(function(){
+            if ($(this).children('li').length == 0) {
+                $(this).prev().children('span').remove();
+            }
+        });
+    };
+</script>
 
