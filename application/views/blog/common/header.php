@@ -19,7 +19,7 @@
       echo $article == 'article' ? link_tag('static/index/css/screen.css', "stylesheet", "text/css") : '';
      ?>
     <link href="static/index/css/carousel.css" rel="stylesheet">
-        <script>
+<script>
 var _hmt = _hmt || [];
 (function() {
   var hm = document.createElement("script");
@@ -124,9 +124,13 @@ var _hmt = _hmt || [];
           </li>
           <?php } ?>
 <?php } ?>
-
+<?php if ($this->uri->segment(2) != 'music') { ?>
+          <li style="display: none;">
+            <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=461855254&auto=1&height=66"></iframe>
+          </li>
+<?php } ?>
           <li>
-              <li><a href="javascript::void(0)">关于自己</a></li>
+              <li><a href="<?php echo site_url('blog/music/index') ?>">音乐</a></li>
           </li>
           <li>
               <li><a href="<?php echo site_url('blog/album') ?>">相册</a></li>
