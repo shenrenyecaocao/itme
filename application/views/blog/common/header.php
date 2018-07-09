@@ -132,7 +132,7 @@ var _hmt = _hmt || [];
               <li><a href="<?php echo site_url('blog/album') ?>">相册</a></li>
           </li>
         </ul>
-        <form class="navbar-form navbar-left">
+        <form class="navbar-form navbar-left" action="<?php echo site_url('blog/article/index') ?>">
           <div class="form-group">
           <input type="text" class="form-control" name="keyword" placeholder="Search">
           </div>

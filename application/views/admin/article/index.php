@@ -18,7 +18,7 @@
                 <th width="10%">创建日期</th>
                 <th width="20%" style="text-align: center;">操作</th>
               </tr>
-              <?php foreach ($articles as $index => $article) { ?>
+              <?php foreach ($article_list as $index => $article) { ?>
               <tr>
                 <th><?php echo $index + 1 ?></th>
                 <th><a href="<?php echo site_url('admin/article/show/' . $article['article_id']) ?>"><?php echo $article['title'] ?></a></th>
@@ -31,6 +31,16 @@
               <?php } ?>
             </table>
           </div>
+        <nav class="pagination">
+          <br/>
+          <?php if ($current_page > 1) {?>
+          <a class="newer-posts" href="<?php echo site_url('admin/article/index') . "?page=" . $last_page ?>">上一页</a>
+        <?php } ?>
+          <span class="page-number">第 <?php echo $current_page ?> 页/共 <?php echo $total_page ?> 页</span>
+          <?php if ($current_page < $total_page) { ?>
+          <a class="older-posts" href="<?php echo site_url('admin/article/index') . "?page=" . $next_page ?>">下一页</a>
+        <?php } ?>
+    </nav>
         </div>
       </div>
     </div>

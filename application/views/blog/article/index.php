@@ -79,72 +79,18 @@
 
 
 <nav class="pagination" role="navigation">
-    <span class="page-number">第 1 页 &frasl; 共 9 页</span>
-        <a class="older-posts" href="/page/2/"><i class="fa fa-angle-right"></i></a>
+        <?php if ($current_page > 1) {?>
+        <a class="older-posts" href="<?php echo site_url('blog/article/index') . "?page=" . $last_page ?>"><i class="fa fa-angle-right">上一页</i></a>
+        <?php } ?>
+    <span class="page-number">第 <?php echo $current_page ?> 页 &frasl; 共 <?php echo $total_page ?> 页</span>
+        <?php if ($current_page < $total_page) { ?>
+        <a class="older-posts" href="<?php echo site_url('blog/article/index') . "?page=" . $next_page ?>"><i class="fa fa-angle-right">下一页</i></a>
+        <?php } ?>
 </nav>
 
 
 </main>
-
-                <aside class="col-md-4 sidebar">
-                <!-- start widget -->
-<!-- end widget -->
-
-<!-- start tag cloud widget -->
-<div class="widget">
-    <h4 class="title">社区</h4>
-    <div class="content community">
-        <p>QQ群：277327792</p>
-        <p><a href="http://wenda.ghostchina.com/" title="Ghost中文网问答社区" target="_blank" onclick="_hmt.push(['_trackEvent', 'big-button', 'click', '问答社区'])"><i class="fa fa-comments"></i> 问答社区</a></p>
-        <p><a href="http://weibo.com/ghostchinacom" title="Ghost中文网官方微博" target="_blank" onclick="_hmt.push(['_trackEvent', 'big-button', 'click', '官方微博'])"><i class="fa fa-weibo"></i> 官方微博</a></p>
-    </div>
-</div>
-<!-- end tag cloud widget -->
-
-<!-- start widget -->
-<div class="widget">
-    <h4 class="title">下载 Ghost</h4>
-    <div class="content download">
-        <a href="/download/" class="btn btn-default btn-block" onclick="_hmt.push(['_trackEvent', 'big-button', 'click', '下载Ghost'])">Ghost 中文版（0.6.0）</a>
-    </div>
-</div>
-<!-- end widget -->
-
-<!-- start tag cloud widget -->
-<div class="widget">
-    <h4 class="title">标签云</h4>
-    <div class="content tag-cloud">
-        <a href="/tag/ke-hu-duan/">客户端</a>
-<a href="/tag/android/">Android</a>
-<a href="/tag/jquery/">jQuery</a>
-<a href="/tag/ghost-0-7-ban-ben/">Ghost 0.7 版本</a>
-<a href="/tag/opensource/">开源</a>
-<a href="/tag/zhu-shou-han-shu/">助手函数</a>
-<a href="/tag/tag-cloud/">标签云</a>
-<a href="/tag/navigation/">导航</a>
-<a href="/tag/customize-page/">自定义页面</a>
-<a href="/tag/static-page/">静态页面</a>
-<a href="/tag/roon-io/">Roon.io</a>
-<a href="/tag/configuration/">配置文件</a>
-<a href="/tag/upyun/">又拍云存储</a>
-<a href="/tag/upload/">上传</a>
-<a href="/tag/handlebars/">Handlebars</a>
-<a href="/tag/email/">邮件</a>
-<a href="/tag/shortcut/">快捷键</a>
-<a href="/tag/yong-hu-zhi-nan/">用户指南</a>
-
-
-        <a href="/tag-cloud/">...</a>
-    </div>
-</div>
-<!-- end tag cloud widget -->
-
-<!-- start widget -->
-<!-- end widget -->
-
-<!-- start widget -->
-<!-- end widget -->                </aside>
-
+<?php $this->load->view('blog/common/aside') ?>
             </div>
         </div>
     </section>

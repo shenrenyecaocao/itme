@@ -14,7 +14,13 @@ class Article extends Base_admin
     public function index()
     {
         $data['title'] = '文章管理';
-        $data['articles'] = $this->Bll_article->get_article_list();
+        $page_size = 5;
+        $articles = $this->Bll_article->get_article_list($page_size);
+        $data['article_list'] = $articles['article_list'];
+        $data['current_page'] = $articles['current_page'];
+        $data['total_page'] = $articles['total_page'];
+        $data['last_page'] = $articles['last_page'];
+        $data['next_page'] = $articles['next_page'];
         $this->load->view('admin/article/index', $data);
     }
 

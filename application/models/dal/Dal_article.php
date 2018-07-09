@@ -5,24 +5,50 @@ class Dal_article extends MY_Model
 {
     public $table = 'article';
 
-    public function query_article_list()
+    public function query_article_list($field, $keyword, $start, $page_size, $article_ids)
     {
-        $temp_arr = [];
-        $fields = ['child_type', 'father_type'];
-        foreach ($fields as $field) {
-            $param = 'article_id, content, title, article_image, c.name as ' . $field . '_name, a.update_date, a.create_date';
-            $this->db->select($param);
-            $this->db->from($this->table . ' as a');
-            $this->db->join('category as c', 'a.' . $field . ' = c.category_id', 'LEFT');
-            $this->db->order_by('a.update_date', 'DESC');
-            $this->db->limit(10, 0);
-            $temp_arr[$field] = $this->db->get()->result_array();
+        $param = 'article_id, content, title, article_image, c.name as ' . $field . '_name, a.update_date, a.create_date';
+        $this->db->select($param);
+        $this->db->from($this->table . ' as a');
+        $this->db->join('category as c', 'a.' . $field . ' = c.category_id', 'LEFT');
+        if ( ! empty($article_ids)) {
+            $this->db->where_in('article_id', $article_ids, FALSE);
         }
-        $article_list = $temp_arr[$fields[0]];
-        foreach ($temp_arr[$fields[1]] as $index => $value) {
-            $article_list[$index]['father_type_name'] = $value['father_type_name'];
+        if ($keyword) {
+            $this->db->like('title', $keyword);
+            $this->db->or_like('content', $keyword);
         }
-        return $article_list;
+        $this->db->order_by('a.update_date', 'DESC');
+        $this->db->limit($page_size, $start);
+        return $this->db->get()->result_array();
+    }
+
+    public function article_count($keyword, $article_ids)
+    {
+        $this->db->select('article_id');
+        $this->db->from($this->table);
+        if ($keyword) {
+            $this->db->like('title', $keyword);
+            $this->db->or_like('content', $keyword);
+        }
+        if ( ! empty($article_ids)) {
+            $this->db->where_in('article_id', $article_ids, FALSE);
+        }
+        return $this->db->count_all_results();
+    }
+
+    public function query_category_of_article_id($category_id)
+    {
+        $this->load->model('dal/Dal_article');
+        $this->db->select('article_id');
+        $this->db->from($this->table);
+        $this->db->or_where(['child_type' => $category_id, 'father_type' => $category_id]);
+        $article_ids = $this->db->get()->result_array();
+        $articles = [];
+        foreach ($article_ids as $key => $value) {
+            $articles[] = $value['article_id'];
+        }
+        return $articles;
     }
 
     public function query_article_detail($article_id)

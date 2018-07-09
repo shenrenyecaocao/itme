@@ -22,6 +22,12 @@ class Bll_category extends CI_Model
         return $data;
     }
 
+    public function query_all_category()
+    {
+        $this->load->model('dal/Dal_category');
+        return $this->Dal_category->get_list("category_id, name");
+    }
+
     public function get_category_level_info($level)
     {
         $this->load->model('dal/Dal_category');
