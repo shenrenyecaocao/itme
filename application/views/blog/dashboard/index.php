@@ -48,7 +48,7 @@
         <div class="col-lg-4">
           <img class="img-circle" src="<?php echo load_image($article['article_image']) ?>" alt="Generic placeholder image" width="140" height="140">
           <h2><?php echo $article['title'] ?></h2>
-          <p><?php echo html_encode(substr($article['content'], 0, 100)) ?></p>
+          <p><?php echo html_encode(mb_substr($article['content'], 0, 100)) ?></p>
           <p><a class="btn btn-default" href="<?php echo site_url('blog/article/show/' . $article['article_id']) ?>" role="button">详细 &raquo;</a></p>
         </div><!-- /.col-lg-4 -->
       <?php } ?>
@@ -61,7 +61,7 @@
       <div class="row featurette">
         <div class="col-md-7">
           <h2 class="featurette-heading"><?php echo $article['title'] ?></h2>
-          <p class="lead"><?php echo html_encode(substr($article['content'], 0, 200)) ?></p>
+          <p class="lead"><?php echo html_encode(mb_substr($article['content'], 0, 200)) ?></p>
           <p><a class="btn btn-default" href="<?php echo site_url('blog/article/show/' . $article['article_id']) ?>" role="button">详细 &raquo;</a>
         </div>
         <div class="col-md-5">

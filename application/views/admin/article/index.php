@@ -22,7 +22,7 @@
               <tr>
                 <th><?php echo $index + 1 ?></th>
                 <th><a href="<?php echo site_url('admin/article/show/' . $article['article_id']) ?>"><?php echo $article['title'] ?></a></th>
-                <th><?php echo html_encode(substr($article['content'], 0, 50)) ?></th>
+                <th><?php echo html_encode(mb_substr($article['content'], 0, 50)) ?></th>
                 <th><img class="img-rounded" alt="封面" src="<?php echo load_image($article['article_image']) ?>" height="40" width="45"></th>
                 <th><?php echo $article['father_type_name'] ?><b>-></b><?php echo $article['child_type_name'] ?></th>
                 <th width="100"><?php echo $article['create_date'] ?></th>

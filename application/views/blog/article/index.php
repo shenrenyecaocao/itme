@@ -43,7 +43,7 @@ if (empty($article_list)) {
         </div>
     </div>
     <div class="post-content">
-        <p><?php echo html_encode(substr($article['content'], 0, 200)) ?></p>
+        <p><?php echo html_encode(mb_substr($article['content'], 0, 200)) ?></p>
     </div>
     <div class="post-permalink">
         <a href="<?php echo site_url('blog/article/show/' . $article['article_id']) ?>" class="btn btn-default">阅读全文</a>
