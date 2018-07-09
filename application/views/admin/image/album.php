@@ -20,8 +20,8 @@
       <div style="height:120px;">
         <img class="group list-group-image" width="150px" height="120px" src="<?php echo $image['image_url'] ?>" alt="" />
       </div>
-      <div class="caption" data-id="<?php echo $image['image_id'] ?>" style="height:25px; padding:2px">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <input type="checkbox" class="btn btn-primary btn-xs">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a role="button" class="btn btn-primary btn-xs support">赞</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a role="button" class="btn btn-primary btn-xs del">删</a>
+      <div class="caption" data-id="<?php echo $image['image_id'] ?>" style="height:25px; padding:2px">&nbsp;&nbsp;&nbsp;
+        <input type="checkbox" class="btn btn-primary btn-xs">&nbsp;&nbsp;&nbsp;<span><?php echo $image['support'] ?></span><a role="button" class="btn btn-primary btn-xs support">赞</a>&nbsp;&nbsp;&nbsp;<a role="button" class="btn btn-primary btn-xs del">删</a>
       </div>
     </div>
   </div>
@@ -58,45 +58,49 @@
 
         var checkbox = new Array();
         $(".allsupport").on("click", function(){
-            checkbox = []
+            checkbox = [];
             input.each(function(i, k){
                 if ($(this).is(":checked")) {
                     var image_id = $(this).parent().data('id');
-                    checkbox.push(image_id)
+                    checkbox.push(image_id);
                 }
             });
-            if (checkbox.lenght > 0) {
-                image_action(checkbox, 'delete')
+            if (checkbox.length > 0) {
+                image_action(checkbox, 'delete');
             }
         })
 
         $(".alldel").on("click", function(){
             checkbox = []
-            input.each(function(i, k){
+            input.each(function(i){
                 if ($(this).is(":checked")) {
                     var image_id = $(this).parent().data('id');
                     checkbox.push(image_id)
                 }
             });
-            if (checkbox.lenght > 0) {
-                image_action(checkbox, 'delete')
+            if (checkbox.length > 0) {
+                image_action(checkbox, 'delete');
             }
         })
 
         $(".del").on("click", function(){
-            checkbox = []
-            if ($(this).prev().prev().is(":checked")) {
+            checkbox = [];
+            if ($(this).prevAll().prev().is(":checked")) {
                 var image_id = $(this).parent().data('id');
-                checkbox.push(image_id)
-                image_action(checkbox, 'delete')
+                checkbox.push(image_id);
+            }
+            if (checkbox.length > 0 ) {
+                image_action(checkbox, 'support');
             }
         })
 
         $(".support").on("click", function(){
-            checkbox = []
-            if ($(this).prev().is(":checked")) {
+            checkbox = [];
+            if ($(this).prevAll('input').is(":checked")) {
                 var image_id = $(this).parent().data('id');
                 checkbox.push(image_id);
+            }
+            if (checkbox.length > 0 ) {
                 image_action(checkbox, 'support');
             }
         })
@@ -105,18 +109,16 @@
         {
             $.ajax({
                 url:'<?php echo site_url('admin/image/action') ?>',
-                type:'POST', //GET
-                async:true,    //或false,是否异步
+                type:'POST',
                 data:{
                     image_id: checkbox,
                     action: action
                 },
-                timeout:5000,    //超时时间
-                dataType:'json',    //返回的数据格式：json/xml/html/script/jsonp/text
+                dataType:'json',
                 success:function(data){
                     result = data.result ? true : false;
                     if (action == "delete" && result) {
-                        window.location.reload()
+                        window.location.reload();
                     }
                 }
             })

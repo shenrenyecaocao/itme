@@ -7,7 +7,7 @@ class Dal_image extends MY_Model
 
     public function get_image($start, $page_size)
     {
-        $this->db->select('image_id, image_url, create_date, update_date');
+        $this->db->select('image_id, image_url, support, create_date, update_date');
         $this->db->from($this->table);
         $this->db->where(array('delete_flg' => $this->flg_false));
         $this->db->order_by('support', 'DESC');
